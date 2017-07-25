@@ -16,31 +16,61 @@
   - На странице image.php вы по номеру понимаете, какое изображение вывести в браузер и выводите его. Я ожидаю, что для этого пункта программы вы создатите массив вида [1 => 'cat.jpg', 2=>'dog.jpg', ... ], однако вы можете предложить и другое решение
 
  * */
+//if()
+?>
+
+<?php
+$operator = $_GET['op'];
+$numberOne = $_GET['n1'];
+$numberTwo = $_GET['n2'];
+$result = 0;
+switch ($operator){
+	case '+':{
+		$result = $numberOne + $numberTwo;
+		break;
+	}case '-':{
+	$result = $numberOne - $numberTwo;
+	break;
+}case '*':{
+	$result = $numberOne * $numberTwo;
+	break;
+}case '/':{
+	if($numberTwo == 0){
+		$result = null;
+	}else{
+		$result = $numberOne / $numberTwo;
+	}
+	break;
+}
+
+//    die;
+//	var_dump($_GET['result']);
+//	var_dump($result);
+	
+}
+$_GET['result'] = $result;
+echo $result;
+var_dump($_GET);
 ?>
 <html>
 <head>
 	<title> Test</title>
 </head>
 <body>
-<?php
-$a = true;
-$b = false;
-
-
-function getGender($a){
-	if($a[strlen($a)-1] == 'a'){
-		return 'f';
-	}
-	return 'm';
-}
-assert(getGender('Alina') == 'f' );
-assert(getGender('Andrei') == 'm');
-assert(getGender('Viorica') == 'f');
-
-
-?>
-
-
+<h1>Calculator</h1>
+<form action="index.php" method="get">
+    <label ><input type="number" name="n1" value="<?=$_GET['n1']?>"></label>
+    <label ><select name="op">
+        <option name="plus" value="+">+</option>
+        <option name="minus" value="-">-</option>
+        <option name="inmultire" value="*">*</option>
+        <option name="impartire" value="/">/</option>
+    </select></label>
+    <label ><input type="number" name="n2" value="<?=$_GET['n2']?>"></label>
+    <button type="submit"> = </button>
+    <br>
+        <label ><input type="number" name="result" value="<?=$result?>"></label>
+</form>
 
 
 </body>
