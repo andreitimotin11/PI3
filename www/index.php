@@ -71,7 +71,13 @@ var_dump($_GET);
     <br>
         <label ><input type="number" name="result" value="<?=$result?>"></label>
 </form>
-
+<h2>Fotogalerie</h2>
+<div>
+    <img src="img/1.jpg">
+    <img src="img/2.jpg">
+    <img src="img/3.jpg">
+    <img src="img/4.jpg">
+</div>
 
 </body>
 </html>
